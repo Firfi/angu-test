@@ -19,7 +19,8 @@ module.exports = function (grunt) {
   // configurable paths
   var yeomanConfig = {
     app: 'app',
-    dist: 'dist'
+    dist: 'dist',
+    build: 'build'
   };
 
   try {
@@ -27,6 +28,7 @@ module.exports = function (grunt) {
   } catch (e) {}
 
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     yeoman: yeomanConfig,
     watch: {
       coffee: {
@@ -135,9 +137,11 @@ module.exports = function (grunt) {
     },
     // not used since Uglify task does concat,
     // but still available if needed
-    /*concat: {
-      dist: {}
-    },*/
+    concat: {
+        dist: {
+
+        }
+    },
     rev: {
       dist: {
         files: {
@@ -272,18 +276,13 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>/scripts',
-          src: '*.js',
-          dest: '<%= yeoman.dist %>/scripts'
+          src: '*.js'
         }]
       }
     },
     uglify: {
       dist: {
-        files: {
-          '<%= yeoman.dist %>/scripts/scripts.js': [
-            '<%= yeoman.dist %>/scripts/scripts.js'
-          ]
-        }
+        src: '<%= yeoman.dist %>/scripts/scripts.js'
       }
     }
   });
@@ -318,14 +317,14 @@ module.exports = function (grunt) {
     'cdnify',
     'ngmin',
     'cssmin',
-    'uglify',
-    'rev',
+    //'rev',
     'usemin'
   ]);
 
   grunt.registerTask('default', [
-    'jshint',
+    //'jshint',
     'test',
-    'build'
+    'build',
+    'uglify'
   ]);
 };
