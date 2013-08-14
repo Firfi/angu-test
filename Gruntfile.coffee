@@ -82,7 +82,7 @@ module.exports = (grunt) ->
       styles:
         files: [
           src: './src/styles/main.css'
-          dest: './main.css'
+          dest: './topico-content-editors.css'
         ]
 
   # Compile CoffeeScript (.coffee) files to JavaScript (.js).
@@ -128,7 +128,7 @@ module.exports = (grunt) ->
     cssmin:
       css:
         files:
-          'main.css': 'main.css'
+          'topico-content-editors.css': 'topico-content-editors.css'
         options:
           banner: '<%= banner %>'
 
