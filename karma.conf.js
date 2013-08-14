@@ -7,12 +7,12 @@ basePath = '';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  'app/bower_components/angular/angular.js',
-  'app/bower_components/angular-mocks/angular-mocks.js',
-  'app/scripts/*.js',
-  'app/scripts/**/*.js',
-  'test/mock/**/*.js',
-  'test/spec/**/*.js'
+  'src/bower_components/angular/angular.js',
+  'src/bower_components/angular-mocks/angular-mocks.js',
+  '.temp/scripts/*.js',
+  '.temp/scripts/**/*.js',
+  '.temp/mock/**/*.js',
+  '.temp/spec/**/*.js'
 ];
 
 // list of files to exclude
@@ -54,3 +54,11 @@ captureTimeout = 5000;
 // Continuous Integration mode
 // if true, it capture browsers, run tests and exit
 singleRun = false;
+
+preprocessors = {
+  '**/*.coffee': ['coffee']
+};
+
+plugins = [
+  'karma-coffee-preprocessor'
+];
